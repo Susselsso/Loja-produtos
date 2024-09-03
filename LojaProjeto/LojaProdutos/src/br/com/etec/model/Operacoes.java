@@ -55,4 +55,13 @@ private void acessarConta(ActionEvent event) {
 		alerta.setContentText(mensagem);
 		alerta.showAndWait();
 }
+	
+	
+	//------------------------------------------------------------------------------------------------
+	@FXML
+	private void fecharTela(ActionEvent event) {
+		
+		
+		
+	}
 }
