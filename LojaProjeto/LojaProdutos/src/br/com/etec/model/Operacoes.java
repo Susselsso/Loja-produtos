@@ -18,7 +18,7 @@ public class Operacoes {
 	private Button btnAcessar;
 	
 	@FXML
-	private void acessarConta(ActionEvent event) {
+private void acessarConta(ActionEvent event) {
 		
 		String nomeUsuario;
 		nomeUsuario = txfUsuario.getText();
@@ -27,14 +27,25 @@ public class Operacoes {
 		senhaUsuario = psfUsuario.getText();
 		
 		if(nomeUsuario.isEmpty() || senhaUsuario.isEmpty()) {
-			mostrarMensagem(Alert.AlertType.WARNING,"FALTANDO DADOS", "SEM USUÁRIO OU SENHA");
+			
+			if(nomeUsuario.isEmpty()) {
+			mostrarMensagem(Alert.AlertType.WARNING, "FALTANDO DADOS", "INFORMAR O USUÁRIO");
 			} // if
+			else {
+				if(senhaUsuario.isEmpty()) {
+				mostrarMensagem(Alert.AlertType.WARNING, "FALTANDO DADOS", "INFORMAR A SENHA");
+			}
+			}
+		} // if
 		else {
-			mostrarMensagem(Alert.AlertType.WARNING,"FALTANDO DADOS", "INFORMAR SENHA");
+			if(nomeUsuario.equals("admin")&& senhaUsuario.equals("123456")){
+				mostrarMensagem(Alert.AlertType.WARNING, " ACESSO", "CERTO");
+			}else {
+				mostrarMensagem(Alert.AlertType.WARNING, "ERRO DE ACESSO", "USUÁRIO OU SENHA EERADOS");
+			}
 		}
-		
-	}  // acessar conta
-	
+	} // acessarConta
+
 	//-------------------------------------------------------------------------------------------
 	
 	private void mostrarMensagem(Alert.AlertType tipo, String titulo, String mensagem) {
